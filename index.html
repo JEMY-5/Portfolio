@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Cybersécurité & IT</title>
+    <!-- Font Google JetBrains Mono & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: #111827;
+            --card-border: #1f293d;
+            --primary: #00ff88; /* Neon Cyber Green */
+            --primary-glow: rgba(0, 255, 136, 0.2);
+            --secondary: #00d8ff; /* Cyber Cyan */
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --font-mono: 'JetBrains Mono', monospace;
+            --font-sans: 'Inter', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            padding-bottom: 50px;
+        }
+
+        /* Container Limit */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header / Navbar */
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--card-border);
+            position: sticky;
+            top: 0;
+            background-color: rgba(11, 15, 25, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-weight: 800;
+            color: var(--primary);
+            font-size: 1.2rem;
+            text-decoration: none;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section with Terminal Effect */
+        .hero {
+            padding: 60px 0 40px 0;
+        }
+
+        .terminal-window {
+            background: #0d1117;
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+
+        .terminal-header {
+            background: #161b22;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .dot-red { background: #ff5f56; }
+        .dot-yellow { background: #ffbd2e; }
+        .dot-green { background: #27c93f; }
+
+        .terminal-title {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-left: 10px;
+        }
+
+        .terminal-body {
+            padding: 25px;
+            font-family: var(--font-mono);
+            font-size: 1rem;
+        }
+
+        .terminal-body .prompt {
+            color: var(--primary);
+        }
+
+        .terminal-body h1 {
+            font-size: 2.2rem;
+            color: #fff;
+            margin: 10px 0;
+            font-family: var(--font-sans);
+            font-weight: 700;
+        }
+
+        .terminal-body p {
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            font-family: var(--font-sans);
+        }
+
+        .status-tag {
+            display: inline-block;
+            background: rgba(0, 255, 136, 0.1);
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-family: var(--font-mono);
+            font-size: 1.5rem;
+            color: var(--text-main);
+            margin: 50px 0 25px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::before {
+            content: '>';
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* Grid Layouts */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            padding: 20px;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .badge-icon {
+            width: 50px;
+            height: 50px;
+            background: #1f293d;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--secondary);
+            font-family: var(--font-mono);
+            flex-shrink: 0;
+        }
+
+        .badge-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            color: #fff;
+        }
+
+        .card-issuer {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+
+        .badge-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-family: var(--font-mono);
+            font-weight: 600;
+        }
+
+        .badge-link:hover {
+            text-decoration: underline;
+        }
+
+        /* TUMO Section Highlight */
+        .tumo-card {
+            background: linear-gradient(135deg, rgba(17, 24, 39, 1) 0%, rgba(31, 41, 61, 0.5) 100%);
+            border: 1px solid var(--secondary);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .tumo-badge {
+            background: rgba(0, 216, 255, 0.1);
+            color: var(--secondary);
+            border: 1px solid var(--secondary);
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-family: var(--font-mono);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .tag {
+            background: #1f293d;
+            color: var(--text-main);
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-family: var(--font-mono);
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 60px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-family: var(--font-mono);
+            border-top: 1px solid var(--card-border);
+            padding-top: 30px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .terminal-body h1 { font-size: 1.6rem; }
+            .grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="container nav-content">
+            <a href="#" class="logo">root@portfolio:~#</a>
+            <nav>
+                <a href="#tumo">Parcours TUMO</a>
+                <a href="#badges">Certifications</a>
+                <a href="#projets">Projets</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- Hero / Présentation -->
+        <section class="hero">
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <span class="dot dot-red"></span>
+                    <span class="dot dot-yellow"></span>
+                    <span class="dot dot-green"></span>
+                    <span class="terminal-title">bash - portfolio_sec.sh</span>
+                </div>
+                <div class="terminal-body">
+                    <span class="status-tag">🟢 Disponible pour opportunités / Alternance</span>
+                    <p class="prompt">$ whoami</p>
+                    <h1>Jérémy ETUY</h1>
+                    <p class="prompt">$ cat bio.txt</p>
+                    <p>Passionné par l'informatique, les réseaux et la cybersécurité. En apprentissage continu à travers des labs pratiques (SensCyber, CISCO) et des programmes de formation spécialisés.</p>
+                    
+                    <div style="margin-top: 15px;">
+                        <a href="#contact" class="badge-link" style="font-size: 1rem;">Me Contacter ➔</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Parcours TUMO -->
+        <section id="tumo">
+            <h2 class="section-title">TUMO</h2>
+            
+            <div class="tumo-card">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;">
+                    <div>
+                        <span class="tumo-badge">TUMO Center for Creative Technologies</span>
+                        <h3 style="font-size: 1.4rem; color: #fff; margin-top: 5px;">Apprentissage Technologique & Projets Autonomes</h3>
+                    </div>
+                </div>
+                <p>Développement de compétences techniques à travers des ateliers auto-guidés et des projets pratiques encadrés par des experts :</p>
+                
+                <ul style="margin: 15px 0 15px 20px; color: var(--text-muted); font-size: 0.95rem;">
+                    <li><strong>Programmation :</strong> Initiation aux concepts de logique de code et création de scripts.</li>
+                    <li><strong>Robotique :</strong> Manipulation et structuration de projets d'ingénierie numérique.</li>
+                    <li><strong>Jeux Vidéo :</strong> Gestion de projets pas à pas et résolution de problèmes.</li>
+                </ul>
+
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Web Dev</span>
+                    <span class="tag">Robotique</span>
+                    <span class="tag">Résolution de problèmes</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Badges et Certifications -->
+        <section id="badges">
+            <h2 class="section-title">Badges & Attestations Cybersécurité</h2>
+            
+            <div class="grid">
+<!-- 
+                // Badge 1 : TryHackMe
+                <div class="card">
+                    <div class="card-header">
+                        <div class="badge-icon">THM</div>
+                        <div>
+                            <h3>Pre Security / SOC Level 1</h3>
+                            <span class="card-issuer">TryHackMe</span>
+                        </div>
+                    </div>
+                    <p>Apprentissage des principes fondamentaux de la sécurité des réseaux, de l'analyse des logs et de l'investigation numérique.</p>
+                    <div class="tags" style="margin-bottom: 15px;">
+                        <span class="tag">Réseaux</span>
+                        <span class="tag">Linux</span>
+                        <span class="tag">Analyse de logs</span>
+                    </div>
+                   // Remplacez le lien ci-dessous par votre vrai lien Credly ou TryHackMe
+                    <a href="https://tryhackme.com/p/JemY5" target="_blank" class="badge-link">Vérifier le badge ➔</a>
+                </div> -->
+
+                <!-- Badge 2 : Cisco / Networking -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="badge-icon">CISCO
+                            <img src="images/ItC-badge.png" alt="Badge CISCO">
+                        </div>
+                        <div>
+                            <h3>Introduction to Cybersecurity</h3>
+                            <span class="card-issuer">Cisco Networking Academy</span>
+                        </div>
+                    </div>
+                    <p>Attestation couvrant les connaissances de base en cybersécurité, notamment sur les implications mondiales des cybermenaces pour les secteurs d'activité.</p>
+                    <div class="tags" style="margin-bottom: 15px;">
+                        <span class="tag">Cybersecurity</span>
+                        <span class="tag">Threat Detection</span>
+                        <span class="tag">Network Vulnerabilities</span>
+                        <span class="tag">Cyber Best Practices</span>
+                        <span class="tag">Privacy And Data Confidentiality</span>
+                    </div>
+                    <!-- Remplacez le lien ci-dessous par votre lien Credly -->
+                    <a href="https://www.credly.com/users/jeremy-etuy" target="_blank" class="badge-link">Vérifier sur Credly ➔</a>
+                </div>
+<!-- 
+                 Badge 3 : Root-Me / Autre 
+                <div class="card">
+                    <div class="card-header">
+                        <div class="badge-icon">RM</div>
+                        <div>
+                            <h3>Profil Challengeur</h3>
+                            <span class="card-issuer">Root-Me</span>
+                        </div>
+                    </div>
+                    <p>Résolution de challenges pratiques : Web, Réseau, Steganographie et Cryptographie.</p>
+                    <div class="tags" style="margin-bottom: 15px;">
+                        <span class="tag">CTF</span>
+                        <span class="tag">Hacking Éthique</span>
+                    </div>
+                    <a href="https://www.root-me.org/" target="_blank" class="badge-link">Voir le profil ➔</a>
+                </div> -->
+
+            </div>
+        </section>
+
+        <!-- Projets & Labs -->
+        <section id="projets">
+            <h2 class="section-title">Projets Personnels & Labs</h2>
+            
+            <div class="grid">
+                
+                <div class="card">
+                    <h3>Création d'un Homelab Réseau</h3>
+                    <p style="margin-top: 10px;">Mise en place d'un environnement virtuel sécurisé (pfSense, machines d'entraînement Linux/Windows) pour tester des règles de pare-feu.</p>
+                    <div class="tags">
+                        <span class="tag">VirtualBox</span>
+                        <span class="tag">pfSense</span>
+                        <span class="tag">Wireshark</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Scripts d'Automatisation Python</h3>
+                    <p style="margin-top: 10px;">Développement de petits outils CLI en Python pour scanner des ports locaux et analyser des en-têtes HTTP.</p>
+                    <div class="tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Sockets</span>
+                        <span class="tag">Scripting</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2 class="section-title">Me Contacter</h2>
+            
+            <div class="card" style="text-align: center; padding: 40px;">
+                <p style="font-size: 1.1rem; color: #fff; margin-bottom: 20px;">
+                    Un projet, une question ou une opportunité d'alternance / stage ?
+                </p>
+                <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                    <a href="mailto:jeremy.etuy@proton.me" class="badge-link" style="font-size: 1rem; background: var(--card-border); padding: 10px 20px; border-radius: 6px;">✉️ Envoyez un Email</a>
+                    <a href="https://www.linkedin.com/in/jeremyetuy" target="_blank" class="badge-link" style="font-size: 1rem; background: var(--card-border); padding: 10px 20px; border-radius: 6px;">🔗 Profil LinkedIn</a>
+                    <a href="https://github.com/JEMY-5" target="_blank" class="badge-link" style="font-size: 1rem; background: var(--card-border); padding: 10px 20px; border-radius: 6px;">💻 GitHub</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 [Votre Nom] — Portfolio hébergé sur GitHub Pages</p>
+    </footer>
+
+</body>
+</html>
