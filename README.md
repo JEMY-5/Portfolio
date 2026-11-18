@@ -1,33 +1,38 @@
 # 🛡️ Portfolio Cybersécurité & IT
 
-Bienvenue sur le dépôt de mon portfolio personnel. Ce site web présente mon parcours, mes certifications en cybersécurité, mes compétences techniques ainsi que mes projets pratiques.
+Portfolio personnel de Jérémy ETUY : parcours, certifications et attestations en cybersécurité.
 
-🌐 **Site en ligne :** [https://jemy-5.github.io/Portfolio/](https://jemy-5.github.io/Portfolio/)
+🌐 **Site en ligne :** https://jemy-5.github.io/Portfolio/
 
----
+## Contenu
 
-## 📌 Aperçu des Fonctionnalités
+- **Parcours TUMO** : TUMO Lyon, de 2022 à la fermeture du centre en 2025.
+- **Badges** : Cisco Networking Academy, *Introduction to Cybersecurity* (vérifiable sur Credly).
+- **Documents** : attestations SensCyber et Cisco, à visualiser ou télécharger en PDF.
+- **Contact** : email, LinkedIn, GitHub.
 
-- **Interface Dark Tech / Cyber :** Design épuré adapté au domaine de la cybersécurité avec effet de terminal interactif.
-- **Parcours Extra-Scolaire :** Mise en avant de mon expérience et de mes réalisations au sein du **TUMO Center for Creative Technologies**.
-- **Badges & Certifications :** Intégration de mes attestations officielles (Cisco Networking Academy, Credly).
-- **Projets & Homelabs :** Présentation de mes travaux pratiques (Virtualisation, Scripting Python, Réseaux, CTF).
-- **Fully Responsive :** Optimisé pour tous les écrans (Desktop, Tablette, Mobile).
+## Technologies
 
----
+- HTML5 et CSS3 (variables CSS, Flexbox, CSS Grid), sans JavaScript.
+- Polices *JetBrains Mono* et *Inter* (Google Fonts).
+- Hébergement : GitHub Pages.
+- Responsive, navigation clavier et `prefers-reduced-motion` pris en charge.
 
-## 🛠️ Technologies Utilisées
-
-- **Front-End :** HTML5, CSS3 (Variables CSS, Flexbox & CSS Grid), JavaScript natif.
-- **Police & Typographie :** *JetBrains Mono* & *Inter* (via Google Fonts).
-- **Hébergement :** GitHub Pages.
-
----
-
-## 📁 Structure du Projet
+## Structure
 
 ```text
 Portfolio/
-├── index.html        # Page principale du site
-├── images/           # Badges, logos et visuels des projets
-└── README.md         # Documentation du dépôt
+├── index.html
+├── images/
+│   └── ItC-badge.png
+├── documents/
+│   ├── senscyber-attestation.pdf
+│   └── cisco-attestation.pdf
+└── README.md
+```
+
+## À venir
+
+- CV au format ATS
+- Projets et labs
+- Profils TryHackMe / Root-Me
