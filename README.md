@@ -24,10 +24,9 @@ Portfolio personnel de Jérémy ETUY : parcours, certifications et attestations 
 Portfolio/
 ├── index.html
 ├── images/
-│   └── ItC-badge.png
-├── documents/
-│   ├── senscyber-attestation.pdf
-│   └── cisco-attestation.pdf
+│   ├── ItC-badge.png
+│   ├── SensCyber_Attestation - Jérémy ETUY.pdf
+│   └── CISCO_Attestation - Jérémy ETUY.pdf
 └── README.md
 ```
 
