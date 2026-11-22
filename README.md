@@ -8,7 +8,7 @@ Portfolio personnel de Jérémy ETUY : parcours, certifications et attestations 
 
 - **Parcours TUMO** : TUMO Lyon, de 2022 à la fermeture du centre en 2025.
 - **Badges** : Cisco Networking Academy, *Introduction to Cybersecurity* (vérifiable sur Credly).
-- **Documents** : attestations SensCyber et Cisco, à visualiser ou télécharger en PDF.
+- **Documents** : CV, attestations SensCyber et Cisco, à visualiser ou télécharger en PDF.
 - **Contact** : email, LinkedIn, GitHub.
 
 ## Technologies
@@ -25,6 +25,7 @@ Portfolio/
 ├── index.html
 ├── images/
 │   ├── ItC-badge.png
+│   ├── CV_Jeremy_ETUY.pdf
 │   ├── SensCyber_Attestation - Jérémy ETUY.pdf
 │   └── CISCO_Attestation - Jérémy ETUY.pdf
 └── README.md
@@ -32,6 +33,5 @@ Portfolio/
 
 ## À venir
 
-- CV au format ATS
 - Projets et labs
 - Profils TryHackMe / Root-Me
